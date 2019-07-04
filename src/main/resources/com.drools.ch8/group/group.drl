@@ -1,0 +1,68 @@
+package com.drools.ch8.group;
+dialect  "mvel"
+/**
+auto-focus will be active when no set focus #{kieSession.getAgenda().getAgendaGroup("group1").setFocus();}
+agenda-group "" is used for the divide into group 用于聚合
+ruleflow-group is the same as the agenda-group ""
+activation-group "" 只要执行了其中一条rule， the rest of rule won't be executed
+if not specified the activation-group "" it will choose one to execute
+*/
+
+rule "测试1"
+agenda-group "group1"
+    when
+    then
+    System.out.println("默认方式1");
+end
+
+rule "测试1x"
+agenda-group "group1"
+    when
+    then
+    System.out.println("默认方式1x");
+end
+
+rule "测试2"
+auto-focus true
+agenda-group "group2"
+    when
+    then
+    System.out.println("默认方式2");
+end
+
+rule "测试2x"
+agenda-group "group2"
+    when
+    then
+    System.out.println("默认方式2x");
+end
+
+rule "测试3"
+agenda-group "group3"
+    when
+    then
+    System.out.println("默认方式3");
+end
+
+rule "测试4"
+ruleflow-group "group4"
+    when
+    then
+    System.out.println("默认方式4");
+end
+
+//#########activation-group "华丽分割线"#######
+rule "测试5"
+//if not specified the activation-group "" it will choose one to execute
+activation-group "group5"
+    when
+    then
+    System.out.println("默认方式5");
+end
+
+rule "测试5x"
+activation-group "group5"
+    when
+    then
+    System.out.println("默认方式5x");
+end

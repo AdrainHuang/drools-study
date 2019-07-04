@@ -1,0 +1,39 @@
+package com.drools.ch3;
+dialect  "mvel"
+
+rule "大于等于60"
+    when
+        $car:Car(person.age>=60)
+    then
+        System.out.println("大于等于60");
+        $car.setFinalPrice($car.getPrice()*0.5);
+        System.out.println($car.getFinalPrice());
+end
+
+rule "大于等于50,小于60"
+    when
+        $car:Car(person.age>=50 && person.age < 60)
+    then
+        System.out.println("大于等于50,小于60");
+        $car.setFinalPrice($car.getPrice()*0.6);
+        System.out.println($car.getFinalPrice());
+end
+
+rule "大于等于30,小于50"
+    when
+        $car:Car(person.age>=30 && person.age < 50)
+    then
+        System.out.println("大于等于30,小于50");
+        $car.setFinalPrice($car.getPrice()*0.6);
+        System.out.println($car.getFinalPrice());
+end
+
+
+rule "小于30"
+    when
+        $car:Car(person.age<30)
+    then
+        System.out.println("小于30");
+        $car.setFinalPrice($car.getPrice()*0.6);
+        System.out.println($car.getFinalPrice());
+end

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <kbase name="costprice" packages="com.drools.ch3">
+        <ksession name="costPrice" />
+    </kbase>
+    <kbase name="static-rule" packages="com.drools.ch8.static1,com.drools.ch8.enable">
+        <ksession name="static-rule-kseesion" />
+        <ksession name="enable-rule-kseesion" />
+    </kbase>
+    <kbase name="group-rule" packages="com.drools.ch8.group">
+        <ksession name="group-rule-session" />
+    </kbase>
+</kmodule>

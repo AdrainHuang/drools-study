@@ -1,0 +1,13 @@
+package com.drools.ch8.static1;
+import com.drools.ch3.Car;
+
+dialect  "mvel"
+//单行注释
+rule "大于等于60"
+    when
+        $car:Car(person.age>=60 && StringUtils.isTrue())
+    then
+        System.out.println("大于等于60");
+        $car.setFinalPrice($car.getPrice()*0.5);
+        System.out.println($car.getFinalPrice());
+end

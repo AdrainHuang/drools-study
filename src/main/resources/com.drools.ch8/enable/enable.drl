@@ -1,0 +1,44 @@
+package com.drools.ch8.enable;
+dialect  "mvel"
+/*
+* enable is used for if the rule will work
+  salience is used for ordering. The higher the value, the higher the priority
+**/
+rule "enable测试1"
+enabled false
+    when
+    then
+    System.out.println("默认方式1");
+end
+
+rule "enable测试2"
+    when
+    then
+    System.out.println("默认方式2");
+end
+
+rule "enable测试3"
+//执行顺序优先级
+salience 0
+    when
+    then
+    System.out.println("默认方式3");
+end
+rule "enable测试4"
+salience 1
+    when
+    then
+    System.out.println("默认方式4");
+end
+rule "enable测试5"
+salience -1
+    when
+    then
+    System.out.println("默认方式5");
+end
+rule "enable测试6"
+salience 6
+    when
+    then
+    System.out.println("默认方式6");
+end
